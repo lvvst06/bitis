@@ -1,28 +1,15 @@
 'use client'
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import Link from 'next/link';
-
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-import '../styles/Slider.css';
+import './styles.css';
 
-export default function Slider() {
-  const [slideData, setSlideData] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch('/data/slide.json');
-      const jsonData = await response.json();
-      setSlideData(jsonData);
-    };
-
-    fetchData();
-  }, []);
-
+export default function Slides({ slides }) {
   return (
     <section className='py-12'>
         <Swiper
@@ -38,7 +25,7 @@ export default function Slider() {
           }}
           modules={[Autoplay, Pagination]}
         >
-          {slideData?.items.map((item, index) => (
+          {slides?.items.map((item, index) => (
             <SwiperSlide key={index}>
               <div className='flex h-full w-full items-center justify-center'>
                 <Link href={item.url}>
@@ -46,7 +33,7 @@ export default function Slider() {
                     src={item.src}
                     alt={item.alt}
                     className='block h-full w-full object-cover'
-                    loading="lazy"
+                    loading={index == 0 ? 'eager' : 'lazy'}
                   />
                 </Link>
               </div>
