@@ -11,7 +11,7 @@ import './styles.css';
 
 export default function Slides({ slides }) {
   return (
-    <section className='py-12'>
+    <section>
         <Swiper
           lazy="true"
           spaceBetween={30}
