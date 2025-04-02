@@ -1,11 +1,20 @@
 import { unstable_cache } from 'next/cache'
 
-export default unstable_cache(
+export const getSlides = unstable_cache(
   async () => {
-    const response = await fetch(`${process.env.__NEXT_PRIVATE_ORIGIN}/data/slide.json`);
-    const jsonData = await response.json();
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/data/slides.json`);
 
-    return jsonData;
+      if (!response.ok) {
+        throw new Error(`Failed to fetch slides, status: ${response.status}`);
+      }
+
+      const slides = await response.json();
+
+      return slides;
+    } catch (error) {
+      return { error: error.message };
+    }
   },
   ['slides'],
   { revalidate: 3600, tags: ['slides'] }

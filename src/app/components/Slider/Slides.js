@@ -10,6 +10,10 @@ import 'swiper/css/pagination';
 import './styles.css';
 
 export default function Slides({ slides }) {
+  if (slides.error) {
+    return <div>Error: {slides.error}</div>;
+  }
+
   return (
     <section>
         <Swiper
