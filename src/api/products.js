@@ -1,6 +1,6 @@
 export async function getProducts() {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/data/products.json`);
+    const response = await fetch(`${process.env.__NEXT_PRIVATE_ORIGIN}/data/products.json`);
 
     if (!response.ok) {
       throw new Error(`Failed to fetch products, status: ${response.status}`);
