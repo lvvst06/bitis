@@ -1,0 +1,29 @@
+.info-bar {
+  text-align: center;
+  font-weight: 500;
+  font-size: 13px;
+  padding: 8px 0;
+  background: #212026;
+  color: #ffffff;
+
+  .languages {
+    z-index: 99;
+  }
+}
+
+.info-bar .hotline-left a {
+  font-weight: 700;
+}
+
+.info-bar .aff-left a {
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    color: #000;
+  }
+}
+
+.info-bar .fa-chevron-down:before {
+  transform: rotate(45deg);
+  right: -8px;
+  top: 5px;
+}
