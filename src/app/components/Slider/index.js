@@ -4,5 +4,9 @@ import { getSlides } from '@/api/slides';
 export default async function Slider() {
   const slides = await getSlides();
 
-  return <Slides slides={slides} />
+  return (
+    <section className="section-slider">
+      <Slides slides={slides} />
+    </section>
+  );
 }
