@@ -2,7 +2,7 @@ export default function NewHunter() {
   return (
     <section className="new-hunter max-w-full">
       <img
-        src="/newhunter.webp"
+        src="/newhunter.avif"
         className="max-w-full"
         alt="new hunter"
         height={68}
